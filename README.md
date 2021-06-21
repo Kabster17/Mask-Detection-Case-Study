@@ -14,6 +14,9 @@ In recent times, there are published research in the fields of Mask-Detections u
 
 2.	https://www.mdpi.com/1424-8220/21/9/3263/pdf - **Face Mask Wearing Detection Algorithm Based on Improved YOLO-v4**  
 
+3. https://www.mdpi.com/2079-9292/10/7/837/pdf - **Real-Time Face Mask Detection Method Based on YOLOv3**  
+
+
 The recent for YOLO’s popularity in solving problem statements which is related to object detections and classifications are mainly due to its speed in the detections and its single stage/pipeline to perform real-time detections and applications as compared to other neural network architectures such as Faster-RCNN or Mask-RCNN.   
 There have been continual work and research being carried on YOLO over the years since its creation since 2016 and YOLOv4 was invented/improved in 2020.  
 I have decided to train and test a Tiny-YOLOv3 model to check on its detection results and accuracy with my own collected/self-sourced Google images. 
