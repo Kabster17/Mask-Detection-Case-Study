@@ -59,6 +59,12 @@ confThreshold (confidence threshold), nmsThreshold (non-maximum suppression thre
 4. Run the scripts to perform the detections on Image/WebCam/Video 
 5. 'Esc' key function is used to destroy the windows 
 
+## Results  
+
+Mask-ON Class - F1 Score @0.5 Confidence Threshold = 0.77  
+Mask-OFF Class - F1 Score @0.5 Confidence Threshold = 0.40  
+
+Testing Image Dataset - 20 Images  
 
 ## Problems – Cause - Solutions
 
