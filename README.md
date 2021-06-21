@@ -3,7 +3,7 @@ Mask Detection using YOLO
 
 ## Introduction:
 During the coronavirus outbreak, it has become evident that one of most effective preventive measure is to wear a face mask. Given the current situation almost everyone is wearing face masks at all times in public places during the pandemic and in country like Singapore it is now against the law if you were to appear without a mask at public events or places.
-This incentivizes us to have the need to explore face mask detection technology to monitor people wearing or not wearing masks in public places. 
+This incentivizes us to have the need to explore face mask detection technology to monitor people wearing or not wearing masks in public places.     
 Case Study:  
 With the rise of AI and many machine learning methodologies and approaches, deep learning is gaining popularity in the fields of object detection and classification. Many deep learning frameworks and architectures have been made easily available and adaptable for various use case.
 In recent times, many have explored various deep learning approaches to perform Mask Detections and have proven to be successful in their implementations in terms of scalability and accuracy in the detections. One of such state-of-the-art object detection model is known as YOLO. 
