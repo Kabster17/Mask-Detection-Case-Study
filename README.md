@@ -17,14 +17,15 @@ I have decided to train and test a Tiny-YOLOv3 model to check on its detection r
 
 ## Methodology:
 •	Architecture: 
-Tiny-YOLOv3 model (trained using Darknet from AlexeyAB’s Github:  https://github.com/AlexeyAB/darknet
-With adjustment made to tweak the hyper parameters catered to a binary classification problem with custom anchors and pre-trained weights.  
-Training iterations at 20000.
+Tiny-YOLOv3 model (trained using Darknet from AlexeyAB’s Github:  https://github.com/AlexeyAB/darknet\
+With adjustment made to tweak the hyper parameters catered to a binary classification problem with custom anchors and pre-trained weights. \
+Training iterations at 20000. \
 
-•	Classes:
-2 – Classes (Mask-ON vs Mask-OFF)
+•	Classes: \
+2 – Classes (Mask-ON vs Mask-OFF) \
 
 •	Data Collection / Annotated:
+
 Self-Collected Data from Google Images: 
 100 Images for Mask-ON / 100 Images for Mask-OFF 
 Each class images have been augmented at random 4 folds using imgaug library (random rotation/horizontal flip/vertical flip) 
