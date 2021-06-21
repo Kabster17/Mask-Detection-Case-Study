@@ -16,7 +16,7 @@ I have decided to train and test a Tiny-YOLOv3 model to check on its detection r
 
 
 ## Methodology:
-•	Architecture: 
+•	Architecture:   
 Tiny-YOLOv3 model (trained using Darknet from AlexeyAB’s Github:  https://github.com/AlexeyAB/darknet  
 With adjustment made to tweak the hyper parameters catered to a binary classification problem with custom anchors and pre-trained weights.  
 Training iterations at 20000.  
@@ -26,74 +26,74 @@ Training iterations at 20000.
 
 •	Data Collection / Annotated:
 
-Self-Collected Data from Google Images: 
-100 Images for Mask-ON / 100 Images for Mask-OFF 
-Each class images have been augmented at random 4 folds using imgaug library (random rotation/horizontal flip/vertical flip) 
-Total Training Images: 1000 (500 for each class)
-Images are labelled using labelimg
-Mask-ON Labelling
-(Labelling is only done on the mask and not bounded to the entire face)
-Mask-OFF Labelling
-(Labelling is only done on the lower part of frontal part (exposed nose and mouth are the target feature for labelling not the entire face)
+Self-Collected Data from Google Images:   
+100 Images for Mask-ON / 100 Images for Mask-OFF   
+Each class images have been augmented at random 4 folds using imgaug library (random rotation/horizontal flip/vertical flip)   
+Total Training Images: 1000 (500 for each class)  
+Images are labelled using labelimg  
+Mask-ON Labelling  
+(Labelling is only done on the mask and not bounded to the entire face)  
+Mask-OFF Labelling  
+(Labelling is only done on the lower part of frontal part (exposed nose and mouth are the target feature for labelling not the entire face)  
 
-•	Testing / Real-Time Detection
-Imported the configuration file of tiny-yolov3 and final weights of the model into a python directory 
-Created a separate open-cv testing scripts for:
-1.	Image Testing – [Mask-Detection-Image.py]
-2.	Video/WebCam Testing – [Mask-Detection.py]
+•	Testing / Real-Time Detection  
+Imported the configuration file of tiny-yolov3 and final weights of the model into a python directory   
+Created a separate open-cv testing scripts for:  
+1.	Image Testing – [Mask-Detection-Image.py]  
+2.	Video/WebCam Testing – [Mask-Detection.py]  
 
 ## Replicating the Test Scripts
 **Requirements:**
-Python and OpenCV 
-tiny-yolov3.cfg file – custom configuration file (used for training) 
-tiny-yolov3.weights – final trained weights 
-obj.names – names file (containing the class names)
-Parameters to check and change in the testing scripts:
-confThreshold (confidence threshold), nmsThreshold (non-maximum suppression threshold), whT (width and height of the image input)
+Python and OpenCV   
+tiny-yolov3.cfg file – custom configuration file (used for training)   
+tiny-yolov3.weights – final trained weights   
+obj.names – names file (containing the class names)  
+Parameters to check and change in the testing scripts:  
+confThreshold (confidence threshold), nmsThreshold (non-maximum suppression threshold), whT (width and height of the image input)  
 
 ## Problems – Cause - Solutions
 
-**Problem 1:**
-Certain orientations of the face (whether masked or unmasked cannot be detected)	
-**Cause/Solution 1:**
-The dataset collected were not as vast or robust to cater to various types of mask orientation.	
-Collect more data and maybe generate augmentations to boost the data variations further 
+**Problem 1:**  
+Certain orientations of the face (whether masked or unmasked cannot be detected)  	
+**Cause/Solution 1:**  
+The dataset collected were not as vast or robust to cater to various types of mask orientation.  	
+Collect more data and maybe generate augmentations to boost the data variations further   
 
-**Problem 2:**
-Image testing sometimes do not produce all the detections.	Due to the different resolutions of the images collected 	
-**Solution 2:**
-Need to standardize the image resolution amongst the training and testing images (without compromising on the quality of the images). 
-Need to self-collect images using standard devices. 
-The workaround is to set the width and height (whT) to be closer to the test image resolution. 
+**Problem 2:**  
+Image testing sometimes do not produce all the detections.	Due to the different resolutions of the images collected   	
+**Solution 2:**  
+Need to standardize the image resolution amongst the training and testing images (without compromising on the quality of the images).   
+Need to self-collect images using standard devices.   
+The workaround is to set the width and height (whT) to be closer to the test image resolution.   
 
-**Problem 3:**
-Detection speed can be improved (more real-time for webcam feed and for the video files if GPU can be utilised).	No GPU available to perform the testing. 	
-**Solution 3:**
-Incorporate the GPU usage if possible to check on the detections.
+**Problem 3:**  
+Detection speed can be improved (more real-time for webcam feed and for the video files if GPU can be utilised).	No GPU available to perform the testing.   	
+**Solution 3:**  
+Incorporate the GPU usage if possible to check on the detections.  
 
 
-**Problem 4:**
-Mask-OFF is essentially a face recognition problem and there might be some bias in the training dataset collected, leading to missed detections.	Humans generally have different facial features and structures which has a lot to do with many factors  (facial hair, accessories, gender, skin tone, age, orientation, expression).
-**Solution 4:**
-Need to collect data in a more ordered fashion with various segmentations to cover as many variations and differences as possible to allow a more robust training/model.
+**Problem 4:**  
+Mask-OFF is essentially a face recognition problem and there might be some bias in the training dataset collected, leading to missed detections.	Humans generally have different facial features and structures which has a lot to do with many factors  (facial hair, accessories, gender, skin tone, age, orientation, expression).  
+**Solution 4:**  
+Need to collect data in a more ordered fashion with various segmentations to cover as many variations and differences as possible to allow a more robust training/model.  
 
-**Problem 5:**
-Different types of cloth masks (designer/graphics/coloured) type of masks were not being detected well.	Many have started to wear special type of masks and designer masks as a kind of fashion statement. 	
-**Solution 5:**
-Need to collect more data in the varying types of masks (cloth type, designer, multi-coloured, special designed)
-Maybe even classify them as a separate mask on category since they are kind of anomaly masks (unique types)
+**Problem 5:**  
+Different types of cloth masks (designer/graphics/coloured) type of masks were not being detected well.	Many have started to wear special type of masks and designer masks as a kind of fashion statement.   	
+**Solution 5:**  
+Need to collect more data in the varying types of masks (cloth type, designer, multi-coloured, special designed)  
+Maybe even classify them as a separate mask on category since they are kind of anomaly masks (unique types)  
 
 
 
 ## Future Work
-•	Improve on the real-time optimization of the model
-•	Gather a vast set of data covering all possible categories of Mask-ON and Mask-OFF features/possibilities
-•	Possibility in looking into detecting if a person is wearing the mask correctly or incorrectly as there are instances and cases where people have been caught not wearing the masks properly and exposing their nose/mouth 
-Some even use objects and t-shirts as substitute to wearing masks which is not safe/approved and prohibited by law. 
+•	Improve on the real-time optimization of the model  
+•	Gather a vast set of data covering all possible categories of Mask-ON and Mask-OFF features/possibilities  
+•	Possibility in looking into detecting if a person is wearing the mask correctly or incorrectly as there are instances and cases where people have been caught not wearing the masks properly and exposing their nose/mouth   
+Some even use objects and t-shirts as substitute to wearing masks which is not safe/approved and prohibited by law.   
 
 ## Directory files:
-1.	tiny-yolov3.cfg (config file)
-2.	tiny-yolov3.weights (last weights file)
-3.	obj.names (class names file)
-4.	Mask-Detection.py (script for webcam feed detections)
-5.	Mask-Detection-Image.py (script for Image detections)
+1.	tiny-yolov3.cfg (config file)  
+2.	tiny-yolov3.weights (last weights file)  
+3.	obj.names (class names file)  
+4.	Mask-Detection.py (script for webcam feed detections)  
+5.	Mask-Detection-Image.py (script for Image detections)  
