@@ -20,8 +20,10 @@ I have decided to train and test a Tiny-YOLOv3 model to check on its detection r
 Tiny-YOLOv3 model (trained using Darknet from AlexeyAB’s Github:  https://github.com/AlexeyAB/darknet
 With adjustment made to tweak the hyper parameters catered to a binary classification problem with custom anchors and pre-trained weights.  
 Training iterations at 20000.
+
 •	Classes:
 2 – Classes (Mask-ON vs Mask-OFF)
+
 •	Data Collection / Annotated:
 Self-Collected Data from Google Images: 
 100 Images for Mask-ON / 100 Images for Mask-OFF 
@@ -32,6 +34,7 @@ Mask-ON Labelling
 (Labelling is only done on the mask and not bounded to the entire face)
 Mask-OFF Labelling
 (Labelling is only done on the lower part of frontal part (exposed nose and mouth are the target feature for labelling not the entire face)
+
 •	Testing / Real-Time Detection
 Imported the configuration file of tiny-yolov3 and final weights of the model into a python directory 
 Created a separate open-cv testing scripts for:
@@ -39,7 +42,7 @@ Created a separate open-cv testing scripts for:
 2.	Video/WebCam Testing – [Mask-Detection.py]
 
 ## Replicating the Test Scripts
-Requirements:
+**Requirements:**
 Python and OpenCV 
 tiny-yolov3.cfg file – custom configuration file (used for training) 
 tiny-yolov3.weights – final trained weights 
@@ -49,16 +52,34 @@ confThreshold (confidence threshold), nmsThreshold (non-maximum suppression thre
 
 ## Problems – Cause - Solutions
 
-Problem Faced	Cause	Solution
-Certain orientations of the face (whether masked or unmasked cannot be detected)	The dataset collected were not as vast or robust to cater to various types of mask orientation.	Collect more data and maybe generate augmentations to boost the data variations further 
-Image testing sometimes do not produce all the detections	Due to the different resolutions of the images collected 	Need to standardize the image resolution amongst the training and testing images (without compromising on the quality of the images) 
+**Problem 1:**
+Certain orientations of the face (whether masked or unmasked cannot be detected)	
+**Cause/Solution 1:**
+The dataset collected were not as vast or robust to cater to various types of mask orientation.	
+Collect more data and maybe generate augmentations to boost the data variations further 
+
+**Problem 2:**
+Image testing sometimes do not produce all the detections.	Due to the different resolutions of the images collected 	
+**Solution 2:**
+Need to standardize the image resolution amongst the training and testing images (without compromising on the quality of the images). 
 Need to self-collect images using standard devices. 
-
 The workaround is to set the width and height (whT) to be closer to the test image resolution. 
-Detection speed can be improved (more real-time for webcam feed and for the video files if GPU can be utilised)	No GPU available to perform the testing 	Incorporate the GPU usage if possible to check on the detections 
-Mask-OFF is essentially a face recognition problem and there might be some bias in the training dataset collected, leading to missed detections.	Humans generally have different facial features and structures which has a lot to do with many factors  (facial hair, accessories, gender, skin tone, age, orientation, expression)	Need to collect data in a more ordered fashion with various segmentations to cover as many variations and differences as possible to allow a more robust training/model. 
-Different types of cloth masks (designer/graphics/coloured) type of masks were not being detected well.	Many have started to wear special type of masks and designer masks as a kind of fashion statement. 	Need to collect more data in the varying types of masks (cloth type, designer, multi-coloured, special designed)
 
+**Problem 3:**
+Detection speed can be improved (more real-time for webcam feed and for the video files if GPU can be utilised).	No GPU available to perform the testing. 	
+**Solution 3:**
+Incorporate the GPU usage if possible to check on the detections.
+
+
+**Problem 4:**
+Mask-OFF is essentially a face recognition problem and there might be some bias in the training dataset collected, leading to missed detections.	Humans generally have different facial features and structures which has a lot to do with many factors  (facial hair, accessories, gender, skin tone, age, orientation, expression).
+**Solution 4:**
+Need to collect data in a more ordered fashion with various segmentations to cover as many variations and differences as possible to allow a more robust training/model.
+
+**Problem 5:**
+Different types of cloth masks (designer/graphics/coloured) type of masks were not being detected well.	Many have started to wear special type of masks and designer masks as a kind of fashion statement. 	
+**Solution 5:**
+Need to collect more data in the varying types of masks (cloth type, designer, multi-coloured, special designed)
 Maybe even classify them as a separate mask on category since they are kind of anomaly masks (unique types)
 
 
