@@ -49,7 +49,16 @@ tiny-yolov3.cfg file – custom configuration file (used for training)
 tiny-yolov3.weights – final trained weights   
 obj.names – names file (containing the class names)  
 Parameters to check and change in the testing scripts:  
-confThreshold (confidence threshold), nmsThreshold (non-maximum suppression threshold), whT (width and height of the image input)  
+confThreshold (confidence threshold), nmsThreshold (non-maximum suppression threshold), whT (width and height of the image input)
+
+**Usage:**  
+- For Image / Video Testing  
+1. Try to keep the video files and image files within the same directory of the detection scripts or specify the path of the image/video referenced to the detection scripts  
+2. The scripts are annotated and comments have been added for clarity   
+3. Changeable parameters such as the Confidence threshold for detections and NMS threshold are defined accordingly
+4. Run the scripts to perform the detections on Image/WebCam/Video 
+5. 'Esc' key function is used to destroy the windows 
+
 
 ## Problems – Cause - Solutions
 
