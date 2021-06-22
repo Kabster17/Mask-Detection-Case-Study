@@ -35,7 +35,7 @@ Training iterations at 20000.
 
 Self-Collected Data from Google Images:   
 100 Images for Mask-ON / 100 Images for Mask-OFF   
-Each class images have been augmented at random 4 folds using imgaug library (random rotation/horizontal flip/vertical flip)   
+Each class images have been augmented at random 4 times using imgaug library (random rotation/horizontal flip/vertical flip)   
 Total Training Images: 1000 (500 for each class)  
 Images are labelled using labelimg  
 Mask-ON Labelling  
