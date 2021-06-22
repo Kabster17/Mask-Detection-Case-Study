@@ -113,7 +113,7 @@ Maybe even classify them as a separate mask on category since they are kind of a
 •	Possibility in looking into detecting if a person is wearing the mask correctly or incorrectly as there are instances and cases where people have been caught not wearing the masks properly and exposing their nose/mouth   
 Some even use objects and t-shirts as substitute to wearing masks which is not safe/approved and prohibited by law.   
 
-## Directory files:
+## Directory files (to be downloaded):
 1.	tiny-yolov3.cfg (config file)  
 2.	tiny-yolov3.weights (last weights file)  
 3.	obj.names (class names file)  
